@@ -1,6 +1,5 @@
 package com.example.profil.ui.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
@@ -9,35 +8,58 @@ import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 
-private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
+private val LightColorScheme = lightColorScheme(
+    primary = Indigo40,
+    onPrimary = Color.White,
+    primaryContainer = IndigoContainer90,
+    onPrimaryContainer = OnIndigoContainer10,
+    secondary = Teal40,
+    onSecondary = Color.White,
+    secondaryContainer = TealContainer90,
+    onSecondaryContainer = OnTealContainer10,
+    tertiary = Amber40,
+    onTertiary = Color.White,
+    tertiaryContainer = AmberContainer90,
+    onTertiaryContainer = OnAmberContainer10,
+    background = Neutral99,
+    onBackground = Neutral10,
+    surface = Neutral99,
+    onSurface = Neutral10,
+    surfaceVariant = NeutralVariant90,
+    onSurfaceVariant = NeutralVariant30,
+    outline = Outline50
 )
 
-private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
-
-    /* Other default colors to override
-    background = Color(0xFFFFFBFE),
-    surface = Color(0xFFFFFBFE),
-    onPrimary = Color.White,
-    onSecondary = Color.White,
-    onTertiary = Color.White,
-    onBackground = Color(0xFF1C1B1F),
-    onSurface = Color(0xFF1C1B1F),
-    */
+private val DarkColorScheme = darkColorScheme(
+    primary = Indigo80,
+    onPrimary = OnIndigoContainer10,
+    primaryContainer = IndigoContainer30,
+    onPrimaryContainer = IndigoContainer90,
+    secondary = Teal80,
+    onSecondary = OnTealContainer10,
+    secondaryContainer = TealContainer30,
+    onSecondaryContainer = TealContainer90,
+    tertiary = Amber80,
+    onTertiary = OnAmberContainer10,
+    tertiaryContainer = AmberContainer30,
+    onTertiaryContainer = AmberContainer90,
+    background = Neutral6,
+    onBackground = Neutral90,
+    surface = Neutral6,
+    onSurface = Neutral90,
+    surfaceVariant = NeutralVariant20,
+    onSurfaceVariant = NeutralVariant80,
+    outline = Outline60
 )
 
 @Composable
 fun ProfilTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
+    // Désactivé par défaut pour garder l'identité visuelle de l'application
+    dynamicColor: Boolean = false,
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
@@ -53,6 +75,7 @@ fun ProfilTheme(
     MaterialTheme(
         colorScheme = colorScheme,
         typography = Typography,
+        shapes = Shapes,
         content = content
     )
 }
